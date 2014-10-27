@@ -4,13 +4,22 @@ fi
 
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
-export PS1='\u \W$(__git_ps1 " (%s)")\$ '
+export PS1='\u \W$(__git_ps1 " [%s]")$ '
 
 # export PATH='/usr/local/bin:$PATH'
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 source /usr/local/bin/virtualenvwrapper.sh
 
 export HIPCHAT_API_KEY='VTpvT891zGC2MN3xHqAYeh3SezK6kDPTqrtYSsPD'
+
+alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test300.zip3'
+alias ls='ls -G'
+alias back="cd $OLDPWD"
+
+# Vagrant commands
+alias vp='vagrant provision'
+alias vu='vagrant up'
+alias vs='vagrant ssh'
 
 #GIT_PS1_SHOWDIRTYSTATE=true
 #GIT_PS1_SHOWSTASHSTATE=true
