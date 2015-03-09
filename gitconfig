@@ -5,6 +5,7 @@
 	default = simple
 [core]
 	editor = vim
+	excludesfile = /Users/skatz/.gitignore_global
 [alias]
     st = status
     ci = commit
@@ -15,3 +16,10 @@
     lg = log -p
     who = shortlog -s --
     pr = "!f() { git fetch origin refs/pull/$1/head:$2; git checkout $2; }; f"
+    pull = pull --ff-only
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -87,7 +87,8 @@ colorscheme solarized
 " Indenting
 """"""""""""""""""""""""""""""""""""""""""""""""
 " auto-indent
-set noautoindent smartindent
+set smartindent
+set indentkeys-=:
 " allow backspacing over everything
 set backspace=indent,eol,start
 " four-character-wide tabs
