@@ -34,6 +34,10 @@ Plugin 'bling/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'tpope/vim-surround'
+
+" Plugin 'scrooloose/syntastic'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -124,3 +128,4 @@ let g:airline_powerline_fonts = 1
 
 " NerdTreeTabs settings
 let g:nerdtree_tabs_open_on_console_startup = 1
+let NERDTreeIgnore = ['\.pyc$']
