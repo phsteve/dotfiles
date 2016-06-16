@@ -36,6 +36,9 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'tpope/vim-surround'
 
+Plugin 'rodjek/vim-puppet'
+
+Plugin 'wincent/command-t'
 " Plugin 'scrooloose/syntastic'
 
 call vundle#end()
@@ -123,7 +126,7 @@ map <C-right> 2zl
 imap <C-right> <C-o>2zl
 
 " Get airline fonts to work
-set guifont=Meslo\ LG\ DZ\ for\ Powerline
+set guifont=Hack
 let g:airline_powerline_fonts = 1
 
 " NerdTreeTabs settings
