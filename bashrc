@@ -1,10 +1,12 @@
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
 fi
 
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
-export PS1='\u \W$(__git_ps1 " [%s]")$ '
+export PS1='\u@\h \W$(__git_ps1 " [%s]")$ '
 
 # export PATH='/usr/local/bin:$PATH'
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python

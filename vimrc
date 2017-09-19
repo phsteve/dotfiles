@@ -36,6 +36,12 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'tpope/vim-surround'
 
+Plugin 'rodjek/vim-puppet'
+
+Plugin 'wincent/Command-T'
+
+Plugin 'lepture/vim-jinja'
+
 " Plugin 'scrooloose/syntastic'
 
 call vundle#end()
@@ -99,10 +105,16 @@ set backspace=indent,eol,start
 set expandtab
 set tabstop=4
 set shiftwidth=4
+"set re=1
 " turn syntax highlighting on, if it is supported
 if &t_Co > 2 || has("gui_running")
 	syntax on
 endif
+" Relative numbers cause ruby and eruby files to be extremely laggy
+autocmd FileType ruby setlocal ts=2 sts=2 sw=2 norelativenumber nocursorline
+autocmd FileType eruby setlocal ts=2 sts=2 sw=2 norelativenumber nocursorline
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 " flag problematic whitespace (trailing spaces and spaces before tabs)
 highlight RedundantSpaces ctermbg=red
 match RedundantSpaces /\s\+$\|[^\t]\zs\t\+\|\t\zs \+/ "\zs sets start of match so only tabs highlighted
@@ -123,8 +135,16 @@ map <C-right> 2zl
 imap <C-right> <C-o>2zl
 
 " Get airline fonts to work
-set guifont=Meslo\ LG\ DZ\ for\ Powerline
+set guifont=Consolas\ for\ Powerline
 let g:airline_powerline_fonts = 1
+let g:airline_symbols = {}
+let g:airline_left_sep = "\u2b80" "use double quotes here
+let g:airline_left_alt_sep = "\u2b81"
+let g:airline_right_sep = "\u2b82"
+let g:airline_right_alt_sep = "\u2b83"
+let g:airline_symbols.branch = "\u2b60"
+let g:airline_symbols.readonly = "\u2b64"
+let g:airline_symbols.linenr = "\u2b61"
 
 " NerdTreeTabs settings
 let g:nerdtree_tabs_open_on_console_startup = 1
