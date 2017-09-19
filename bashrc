@@ -16,6 +16,7 @@ export HIPCHAT_API_KEY='VTpvT891zGC2MN3xHqAYeh3SezK6kDPTqrtYSsPD'
 
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip3'
 alias ls='ls -G'
+alias ll='ls -ltr'
 alias back="cd $OLDPWD"
 
 # Vagrant commands
