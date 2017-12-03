@@ -1,6 +1,8 @@
 [user]
 	name = Steve Katz
-	email = skatz@portware.com
+	email = katz.stephenj@gmail.com
+[push]
+	default = simple
 [core]
 	editor = vim
 [alias]
