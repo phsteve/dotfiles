@@ -12,6 +12,16 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
+Plugin 'alvan/vim-closetag'
+
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'saltstack/salt-vim'
+
+Plugin 'posva/vim-vue'
+
+Plugin 'othree/html5'
+
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'mileszs/ack.vim'
@@ -20,7 +30,8 @@ Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'ervandew/supertab'
 
-Plugin 'chase/vim-ansible-yaml'
+"Plugin 'chase/vim-ansible-yaml'
+Plugin 'pearofducks/ansible-vim'
 
 Plugin 'scrooloose/nerdtree'
 
@@ -105,7 +116,10 @@ set backspace=indent,eol,start
 set expandtab
 set tabstop=4
 set shiftwidth=4
-"set re=1
+autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead *.vue set filetype=html "When opening or creating a .vue file set the filetype to HTML for proper rendering
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 " turn syntax highlighting on, if it is supported
 if &t_Co > 2 || has("gui_running")
 	syntax on
@@ -134,14 +148,19 @@ imap <C-left> <C-o>2zh
 map <C-right> 2zl
 imap <C-right> <C-o>2zl
 
-" Get airline fonts to work
-set guifont=Consolas\ for\ Powerline
+if has('win32')
+    " Get airline fonts to work
+    set guifont=Consolas\ for\ Powerline
+    let g:airline_left_sep = "\u2b80" "use double quotes here
+    let g:airline_left_alt_sep = "\u2b81"
+    let g:airline_right_sep = "\u2b82"
+    let g:airline_right_alt_sep = "\u2b83"
+else
+    set guifont=Hack
+endif
+
 let g:airline_powerline_fonts = 1
 let g:airline_symbols = {}
-let g:airline_left_sep = "\u2b80" "use double quotes here
-let g:airline_left_alt_sep = "\u2b81"
-let g:airline_right_sep = "\u2b82"
-let g:airline_right_alt_sep = "\u2b83"
 let g:airline_symbols.branch = "\u2b60"
 let g:airline_symbols.readonly = "\u2b64"
 let g:airline_symbols.linenr = "\u2b61"
