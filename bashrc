@@ -27,6 +27,9 @@ alias vd='vagrant destroy -f'
 alias vh='vagrant halt'
 alias vr='vagrant reload'
 
+# go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 #GIT_PS1_SHOWDIRTYSTATE=true
 #GIT_PS1_SHOWSTASHSTATE=true
 #GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -34,3 +37,5 @@ alias vr='vagrant reload'
 #PS1='\W$(__git_ps1 " [%s]") $ '
 ## the PS1 above looks like this:
 ## hackerschool [announcements $%] $
+
+export PATH="$HOME/.yarn/bin:$PATH"
