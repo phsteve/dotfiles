@@ -20,7 +20,7 @@ Plugin 'saltstack/salt-vim'
 
 Plugin 'posva/vim-vue'
 
-Plugin 'othree/html5'
+"Plugin 'othree/html5'
 
 Plugin 'gmarik/Vundle.vim'
 
@@ -52,6 +52,14 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'wincent/Command-T'
 
 Plugin 'lepture/vim-jinja'
+
+Plugin 'elixir-editors/vim-elixir'
+
+Plugin 'fatih/vim-go'
+
+Plugin 'hashivim/vim-terraform'
+
+Plugin 'powerman/vim-plugin-AnsiEsc'
 
 " Plugin 'scrooloose/syntastic'
 
@@ -119,7 +127,10 @@ set shiftwidth=4
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.vue set filetype=html "When opening or creating a .vue file set the filetype to HTML for proper rendering
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
+autocmd BufNewFile,BufRead *.tpl set filetype=go
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.html.eex'
 " turn syntax highlighting on, if it is supported
 if &t_Co > 2 || has("gui_running")
 	syntax on
@@ -168,3 +179,7 @@ let g:airline_symbols.linenr = "\u2b61"
 " NerdTreeTabs settings
 let g:nerdtree_tabs_open_on_console_startup = 1
 let NERDTreeIgnore = ['\.pyc$']
+
+" terraform settings
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
