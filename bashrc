@@ -18,7 +18,7 @@ export HIPCHAT_API_KEY='VTpvT891zGC2MN3xHqAYeh3SezK6kDPTqrtYSsPD'
 
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip3'
 alias ls='ls -G'
-alias ll='ls -ltr'
+alias ll='ls -ltrh'
 alias back="cd $OLDPWD"
 
 # Vagrant commands
@@ -33,6 +33,7 @@ alias vr='vagrant reload'
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH="/Users/skatz/go"
 export PATH=$PATH:$GOPATH/bin
+export PATH=/usr/local/go/bin:$PATH
 
 #GIT_PS1_SHOWDIRTYSTATE=true
 #GIT_PS1_SHOWSTASHSTATE=true
@@ -46,10 +47,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 export AWS_DEFAULT_REGION="us-east-1"
 
-# Use jumphost when using SSH, but save a reference to plain old
-# ssh before doing so.
-alias ossh='/usr/local/bin/ssh'
-alias ssh='ossh -J bastion.tptpm.info'
+alias tptssh='ssh -J bastion.tptpm.info'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/skatz/google-cloud-sdk/path.bash.inc' ]; then source '/Users/skatz/google-cloud-sdk/path.bash.inc'; fi
@@ -57,7 +55,7 @@ if [ -f '/Users/skatz/google-cloud-sdk/path.bash.inc' ]; then source '/Users/ska
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/skatz/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/skatz/google-cloud-sdk/completion.bash.inc'; fi
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 export PATH="/usr/local/sbin:$PATH"
 
 # TpT Dev VM specific config
@@ -65,5 +63,36 @@ export PATH="/usr/local/sbin:$PATH"
 export FRONT_HOSTNAME=front-skatz
 export TPT_EXWORKER_SRC_PATH=/Users/skatz/work/exworker
 export TPT_API_SRC_PATH=/Users/skatz/work/api
-source /usr/local/opt/asdf/asdf.sh
 export PATH="/Users/skatz/api/bin:$PATH"
+
+source <(kubectl completion bash)
+#source <(helm completion bash)
+
+#kubectl completion bash | source /dev/stdin
+
+#prompt_set() {
+#    PROMPT_KUBECONTEXT="k8s:$(kubectl config current-context 2>/dev/null)\n"
+#   PS1="${PROMPT_KUBECONTEXT}[\u@\h \W]\$ "
+#}
+
+#source <(tpt completion bash)
+tpt completion bash | source /dev/stdin
+export WTF=lol
+
+alias eksssh='ssh -J ec2-user@3.86.186.249'
+
+export BRIGADE_NAMESPACE=brigade
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+. /usr/local/opt/asdf/asdf.sh
+
+export DOCKER_BUILDKIT=1
+
+# asdf yarn stuff
+export PATH="$(yarn global bin):$PATH"
+
+
+export SELLER_ETL_DEV_KEYFILE="~/gcp/tpt-data/seller-etl-dev.json"
+
+eval "$(hub alias -s)"
